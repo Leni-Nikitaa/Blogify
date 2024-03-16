@@ -57,7 +57,54 @@ router.post("/admin", async (req, res) => {
   }
 });
 router.get("/dashboard", authMiddleware, async (req, res) => {
-  res.render("admin/dashboard");
+  try {
+    const locals = {
+      title: "Dashboard",
+      description:
+        "A dynamic blog platform for avid readers and aspiring writers, built with HTML, CSS, Node.js, and MongoDB. Seamlessly store and retrieve your posts, interact with a vibrant community, and dive into a world of literary exploration.",
+    };
+    const data = await Post.find();
+    res.render("admin/dashboard", {
+      locals,
+      data,
+      layout: adminLayout,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+router.get("/add-post", authMiddleware, async (req, res) => {
+  try {
+    const locals = {
+      title: "Add Post",
+      description:
+        "A dynamic blog platform for avid readers and aspiring writers, built with HTML, CSS, Node.js, and MongoDB. Seamlessly store and retrieve your posts, interact with a vibrant community, and dive into a world of literary exploration.",
+    };
+    const data = await Post.find();
+    res.render("admin/add-post", {
+      locals,
+      layout: adminLayout,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+router.post("/add-post", authMiddleware, async (req, res) => {
+  try {
+    try {
+      const newPost = new Post({
+        title: req.body.title,
+        body: req.body.body,
+      });
+
+      await Post.create(newPost);
+      res.redirect("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
+  } catch (error) {
+    console.log(error);
+  }
 });
 /*router.post("/admin", async (req, res) => {
   try {
