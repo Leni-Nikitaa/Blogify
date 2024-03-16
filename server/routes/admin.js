@@ -106,6 +106,35 @@ router.post("/add-post", authMiddleware, async (req, res) => {
     console.log(error);
   }
 });
+router.get("/edit-post/:id", authMiddleware, async (req, res) => {
+  try {
+    const locals = {
+      title: "Edit Post",
+      description:
+        "A dynamic blog platform for avid readers and aspiring writers, built with HTML, CSS, Node.js, and MongoDB. Seamlessly store and retrieve your posts, interact with a vibrant community, and dive into a world of literary exploration.",
+    };
+    const data = await Post.findOne({ _id: req.params.id });
+    res.render("admin/edit-post", {
+      locals,
+      data,
+      layout: adminLayout,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+router.put("/edit-post/:id", authMiddleware, async (req, res) => {
+  try {
+    await Post.findByIdAndUpdate(req.params.id, {
+      title: req.body.title,
+      body: req.body.body,
+      updatedAt: Date.now(),
+    });
+    res.redirect(`/edit-post/${req.params.id}`);
+  } catch (error) {
+    console.log(error);
+  }
+});
 /*router.post("/admin", async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -134,5 +163,17 @@ router.post("/register", async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+});
+router.delete("/delete-post/:id", authMiddleware, async (req, res) => {
+  try {
+    await Post.deleteOne({ _id: req.params.id });
+    res.redirect("/dashboard");
+  } catch (error) {
+    console.log(error);
+  }
+});
+router.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  res.redirect("/");
 });
 module.exports = router;
