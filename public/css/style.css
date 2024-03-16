@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap");
 :root {
-  --black: #1c1c1c;
+  --black: #000000;
   --gray: #7e7e7e;
   --gray-light: #e4e4e4;
   --red: #b30000;
@@ -198,6 +198,7 @@ img {
 }
 .article-ul li:hover {
   filter: none;
+  border-bottom-color: black;
 }
 .article-ul:hover li {
   filter: blur(3px);
