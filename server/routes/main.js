@@ -8,7 +8,7 @@ router.get("", async (req, res) => {
       description:
         "A dynamic blog platform for avid readers and aspiring writers, built with HTML, CSS, Node.js, and MongoDB. Seamlessly store and retrieve your posts, interact with a vibrant community, and dive into a world of literary exploration.",
     };
-    let perPage = 10;
+    let perPage = 7;
     let page = req.query.page || 1;
     const data = await Post.aggregate([{ $sort: { createdAt: -1 } }])
       .skip(perPage * page - perPage)
@@ -94,44 +94,44 @@ router.get("/about", (req, res) => {
 // function insertPostData () {
 //   Post.insertMany([
 //     {
-//       title: "Building APIs with Node.js",
-//       body: "Learn how to use Node.js to build RESTful APIs using frameworks like Express.js"
+//       title: "The Art of Web Development",
+//       body: "Explore the world of web development and learn the best practices for creating stunning websites."
 //     },
 //     {
-//       title: "Deployment of Node.js applications",
-//       body: "Understand the different ways to deploy your Node.js applications, including on-premises, cloud, and container environments..."
+//       title: "Mastering CSS Grid Layout",
+//       body: "A comprehensive guide to mastering CSS Grid Layout, a powerful tool for creating complex web layouts."
 //     },
 //     {
-//       title: "Authentication and Authorization in Node.js",
-//       body: "Learn how to add authentication and authorization to your Node.js web applications using Passport.js or other authentication libraries."
+//       title: "Building Responsive Websites",
+//       body: "Learn how to create responsive websites that look great on all devices, from smartphones to desktops."
 //     },
 //     {
-//       title: "Understand how to work with MongoDB and Mongoose",
-//       body: "Understand how to work with MongoDB and Mongoose, an Object Data Modeling (ODM) library, in Node.js applications."
+//       title: "Introduction to Node.js",
+//       body: "Get started with Node.js and learn how to build scalable and efficient web applications."
 //     },
 //     {
-//       title: "build real-time, event-driven applications in Node.js",
-//       body: "Socket.io: Learn how to use Socket.io to build real-time, event-driven applications in Node.js."
+//       title: "The Power of MongoDB",
+//       body: "Discover the power of MongoDB and how it can revolutionize the way you store and retrieve data in your web applications."
 //     },
 //     {
-//       title: "Discover how to use Express.js",
-//       body: "Discover how to use Express.js, a popular Node.js web framework, to build web applications."
+//       title: "JavaScript Fundamentals",
+//       body: "Master the fundamentals of JavaScript, the language that powers dynamic web content."
 //     },
 //     {
-//       title: "Asynchronous Programming with Node.js",
-//       body: "Asynchronous Programming with Node.js: Explore the asynchronous nature of Node.js and how it allows for non-blocking I/O operations."
+//       title: "Creating Dynamic Web Pages with AJAX",
+//       body: "Learn how to use AJAX to create dynamic web pages that load content asynchronously, providing a smoother user experience."
 //     },
 //     {
-//       title: "Learn the basics of Node.js and its architecture",
-//       body: "Learn the basics of Node.js and its architecture, how it works, and why it is popular among developers."
+//       title: "Optimizing Web Performance",
+//       body: "LExplore techniques for optimizing web performance, including minimizing load times and reducing page size."
 //     },
 //     {
-//       title: "NodeJs Limiting Network Traffic",
-//       body: "Learn how to limit netowrk traffic."
+//       title: "Securing Your Web Applications",
+//       body: "Discover best practices for securing your web applications and protecting them from common security threats."
 //     },
 //     {
-//       title: "Learn Morgan - HTTP Request logger for NodeJs",
-//       body: "Learn Morgan."
+//       title: "The Future of Web Development,
+//       body: "Explore the latest trends and technologies shaping the future of web development, from AI to voice interfaces."
 //     },
 //   ])
 // }

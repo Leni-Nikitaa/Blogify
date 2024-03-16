@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap");
 :root {
-  --black: #000000;
+  --black: #ffffff;
   --gray: #7e7e7e;
   --gray-light: #e4e4e4;
   --red: #b30000;
@@ -105,15 +105,16 @@ img {
   justify-content: center;
 }
 .header__button {
+  background-color: gray;
   grid-area: button;
   display: flex;
   justify-content: end;
+  border-radius: 15px;
 }
 .header__button button {
   display: flex;
   gap: 0.3rem;
   align-items: center;
-  border: 0;
   pad: 6px 12px;
   background: none;
   border-radius: var(--border-radius);
@@ -198,10 +199,10 @@ img {
 }
 .article-ul li:hover {
   filter: none;
-  border-bottom-color: black;
+  border-bottom-color: var(--gray);
 }
 .article-ul:hover li {
-  filter: blur(3px);
+  filter: none;
 }
 .article-ul:hover li:hover {
   filter: none;
@@ -273,4 +274,24 @@ img {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
+}
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+.btn {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  filter: none;
+}
+.btn-delete {
+  background-color: #dc3545;
+}
+.btn:hover,
+.btn-delete:hover {
+  background-color: #0056b3;
 }
