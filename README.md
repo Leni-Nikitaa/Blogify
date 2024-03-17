@@ -39,7 +39,9 @@ MONGODB_URI=mongodb+srv://username:password@cluster0.t4os4iq.mongodb.net/blogify
 JWT_SECRET=YourJWTSecret
 ```
 
-Replace `username`, `password`, and `YourJWTSecret` with your MongoDB Atlas credentials and a secret key for JWT token. 4. Run the application:
+Replace `username`, `password`, and `YourJWTSecret` with your MongoDB Atlas credentials and a secret key for JWT token.
+
+4. Run the application:
 
 ```bash
 npm start
